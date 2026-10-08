@@ -4,7 +4,7 @@ const urlRoute = require("./route/url");
 const connectDB = require("./connection/database");
 const URL = require("./model/url");
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 connectDB();
 // middleware 
 // parses only json data
