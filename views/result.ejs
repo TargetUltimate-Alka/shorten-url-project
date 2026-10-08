@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <title>URL Shortened</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>✅ URL Shortened!</h1>
+
+      <p><strong>Original URL:</strong></p>
+      <p><%= originalURL %></p>
+
+      <p><strong>Your Short URL:</strong></p>
+
+      <div class="url-box">
+        <input
+          type="text"
+          id="shortUrl"
+          value="http://localhost:8001/<%= shortId %>"
+          readonly
+        />
+
+        <button onclick="copyURL()">Copy</button>
+      </div>
+
+      <div class="links">
+        <a href="/url/analytics/<%= shortId %>"> 📊 View Analytics </a>
+
+        <a href="/"> ➕ Shorten Another </a>
+      </div>
+    </div>
+
+    <script>
+      function copyURL() {
+        const url = document.getElementById("shortUrl");
+
+        navigator.clipboard.writeText(url.value);
+
+        alert("Short URL copied!");
+      }
+    </script>
+  </body>
+</html>

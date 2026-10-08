@@ -1,0 +1,21 @@
+{
+  "name": "shorten_url_project",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.6",
+    "ejs": "^7.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.11.0",
+    "nanoid": "^6.0.2",
+    "nodemon": "^3.1.14",
+    "shortid": "^2.2.17"
+  }
+}

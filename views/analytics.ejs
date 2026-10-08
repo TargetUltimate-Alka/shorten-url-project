@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>URL Analytics</title>
+</head>
+
+<body>
+  <div class ="container">
+    
+    <h1>📊 URL Analytics</h1>
+
+    <p>
+        <strong>Original URL:</strong>
+        <%= originalURL %>
+    </p>
+
+    <p>
+        <strong>Short ID:</strong>
+        <%= shortId %>
+    </p>
+
+    <p>
+        <strong>Total Clicks:</strong>
+        <%= totalClicks %>
+    </p>
+
+    <h2>Visit History</h2>
+
+<% if (analytics.length === 0) { %>
+
+    <p>No visits yet.</p>
+
+<% } else { %>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Visit Time</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <% analytics.forEach((visit, index) => { %>
+
+                <tr>
+                    <td><%= index + 1 %></td>
+
+                    <td>
+                        <%= new Date(visit.timestamp).toLocaleString() %>
+                    </td>
+                </tr>
+
+            <% }) %>
+
+        </tbody>
+    </table>
+
+<% } %>
+
+
+    <div class ="links">
+            <a href="/">
+              Create another short URL
+            </a>
+     </div>
+  
+  </div>
+
+
+</body>
+
+</html>
