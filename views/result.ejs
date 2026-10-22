@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-
     <title>URL Shortened</title>
   </head>
 
@@ -13,7 +12,7 @@
       <h1>✅ URL Shortened!</h1>
 
       <p><strong>Original URL:</strong></p>
-      <p><%= originalURL %></p>
+      <p style="word-break: break-all;"><%= originalURL %></p>
 
       <p><strong>Your Short URL:</strong></p>
 
@@ -21,7 +20,7 @@
         <input
           type="text"
           id="shortUrl"
-          value="http://localhost:8001/<%= shortId %>"
+          value="<%= typeof fullShortURL !== 'undefined' ? fullShortURL : ('/' + shortId) %>"
           readonly
         />
 
@@ -30,7 +29,6 @@
 
       <div class="links">
         <a href="/url/analytics/<%= shortId %>"> 📊 View Analytics </a>
-
         <a href="/"> ➕ Shorten Another </a>
       </div>
     </div>
@@ -38,9 +36,7 @@
     <script>
       function copyURL() {
         const url = document.getElementById("shortUrl");
-
         navigator.clipboard.writeText(url.value);
-
         alert("Short URL copied!");
       }
     </script>

@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <title>URL Shortener</title>
-
 </head>
-
 <body>
-  <div class = "container">
-
-    
-    <h1>🔗 URL Shortener</h1>
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h1>🔗 URL Shortener</h1>
+      <div>
+        <% if (typeof userId !== 'undefined' && userId) { %>
+          <a href="/user/logout" style="font-size: 14px; font-weight: bold; color: #ef4444;">Logout</a>
+        <% } else { %>
+          <a href="/user/login" style="font-size: 14px; margin-right: 12px; font-weight: bold;">Login</a>
+          <a href="/user/register" style="font-size: 14px; font-weight: bold;">Register</a>
+        <% } %>
+      </div>
+    </div>
 
     <p>Shorten your long URLs easily.</p>
 
+    <% if (typeof userId === 'undefined' || !userId) { %>
+      <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 12px; border-radius: 8px; margin: 15px 0;">
+        <p style="margin: 0; color: #1e40af; font-size: 14px;">
+          💡 Please <a href="/user/login" style="font-weight: bold;">Login</a> or <a href="/user/register" style="font-weight: bold;">Register</a> to create and manage shortened URLs.
+        </p>
+      </div>
+    <% } %>
+
     <form action="/url" method="POST">
-
-        <label for="url">
-            Enter your URL:
-        </label>
-
+        <label for="url">Enter your URL:</label>
         <br><br>
-
         <input
             type="text"
             id="url"
@@ -32,14 +40,8 @@
             placeholder="https://example.com"
             required
         >
-
-        <button type="submit">
-            Shorten URL
-        </button>
-
+        <button type="submit">Shorten URL</button>
     </form>
-
   </div>
 </body>
-
 </html>

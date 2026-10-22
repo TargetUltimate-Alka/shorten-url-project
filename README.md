@@ -168,6 +168,23 @@ The `.env` file is intentionally excluded from Git using `.gitignore`.
 
 **Never commit database credentials or API keys to GitHub.**
 
+## 🌐 Netlify Deployment
+
+This repository is configured to run on Netlify using **Netlify Serverless Functions** (`serverless-http` + `netlify.toml`):
+
+1. **Import Repository**: Connect your GitHub repository to Netlify.
+2. **Build Settings**:
+   - **Publish directory**: `public`
+   - **Functions directory**: `netlify/functions`
+   (These are automatically configured via `netlify.toml`).
+3. **Environment Variables**:
+   In your **Netlify Dashboard** -> **Site configuration** -> **Environment variables**, add:
+   - `MONGO_URI`: Your MongoDB Atlas connection string.
+   - `SESSION_SECRET`: A secure random string for session encryption.
+   - `NODE_ENV`: `production`
+
+Once set, Netlify will build and deploy your Express + EJS app serverlessly!
+
 ## 🚧 Future Improvements
 
 - User authentication

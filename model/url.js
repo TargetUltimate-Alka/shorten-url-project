@@ -13,6 +13,13 @@ const urlSchema = new mongoose.Schema(
       required: true,     // required, not require
     },
 
+      // User who created this shortened URL
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
     visitHistory: [
       {
         timestamp: {
